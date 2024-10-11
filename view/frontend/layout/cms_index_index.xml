@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Place the Instagram carousel at the very end of the content section -->
+        <!--
+        <referenceContainer name="content">
+            <block class="WB\InstagramFeeds\Block\Feeds" name="instagram_feeds" template="WB_InstagramFeeds::feeds.phtml" after="-"/>
+        </referenceContainer>
+        -->
+    </body>
+</page>

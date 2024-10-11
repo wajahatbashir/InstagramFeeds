@@ -1,0 +1,100 @@
+<?php
+
+$feeds = $block->getInstagramFeeds(); // Get the feeds from Instagram
+$showTooltip = $block->isTooltipEnabled();  // Get the tooltip enable/disable option
+$sliderOptions = $block->getSliderOptions(); // Fetch slider options from the admin configuration
+
+// Fetch the title and subheading from admin configuration
+$title = $block->getConfig('instagram_feeds/general/title');
+$subheading = $block->getConfig('instagram_feeds/general/subheading');
+
+// Only proceed if we have feeds
+if (!empty($feeds)):
+    // Limit to the number of feeds based on the config
+    $feedsLimit = $block->getConfig('instagram_feeds/general/feeds_limit');
+    $feeds = array_slice($feeds, 0, $feedsLimit ?: 10);
+
+    // Count the number of feeds fetched
+    $feedCount = count($feeds);
+
+    // If there are fewer feeds than slidesToShow, we will loop the feeds
+    if ($feedCount < $sliderOptions['slidesToShow']) {
+        $loopedFeeds = [];
+        while (count($loopedFeeds) < $sliderOptions['slidesToShow']) {
+            $loopedFeeds = array_merge($loopedFeeds, $feeds);
+        }
+        $feeds = array_slice($loopedFeeds, 0, $sliderOptions['slidesToShow']);
+    }
+?>
+
+<?php if ($block->isModuleEnabled()): ?>
+
+<!-- Title and Subtitle for Instagram Carousel -->
+<div class="instagram-title">
+    <h2><?php echo htmlspecialchars($title ?: 'INSTAGRAM'); ?></h2> <!-- Default to INSTAGRAM if not set -->
+    <p><?php echo htmlspecialchars($subheading ?: 'Follow us on Instagram'); ?></p> <!-- Default subheading -->
+</div>
+
+<div class="instagram-feeds-slider" id="instagram-slider">
+    <?php foreach ($feeds as $feed): ?>
+        <div class="feed" <?php echo $showTooltip ? 'title="' . htmlspecialchars($feed['caption']) . '"' : ''; ?>>  <!-- Tooltip on hover if enabled -->
+            <a href="<?php echo $feed['permalink']; ?>" target="_blank">
+                <img src="<?php echo $feed['media_url']; ?>" alt="<?php echo strip_tags($feed['caption']); ?>" style="width: 250px; height: 250px; object-fit: cover;"/>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<script>
+    require(['jquery', 'slick'], function($) {
+        $(document).ready(function() {
+            if ($('#instagram-slider .feed').length > 0) {
+                $('#instagram-slider').slick({
+                    slidesToShow: <?php echo $sliderOptions['slidesToShow']; ?>,  // Admin-configured number of slides to show
+                    slidesToScroll: <?php echo $sliderOptions['slidesToScroll']; ?>,  // Admin-configured number of slides to scroll
+                    infinite: <?php echo $sliderOptions['infinite'] ? 'true' : 'false'; ?>,  // Admin-configured infinite scrolling
+                    autoplay: <?php echo $sliderOptions['autoplay'] ? 'true' : 'false'; ?>,  // Admin-configured autoplay
+                    autoplaySpeed: <?php echo $sliderOptions['autoplaySpeed']; ?>,  // Admin-configured autoplay speed
+                    speed: <?php echo $sliderOptions['speed']; ?>,  // Admin-configured speed
+                    arrows: <?php echo $sliderOptions['arrows'] ? 'true' : 'false'; ?>,  // Admin-configured arrows
+                    dots: <?php echo $sliderOptions['dots'] ? 'true' : 'false'; ?>,  // Admin-configured dots
+                    cssEase: 'linear',  // Smooth movement
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 1,
+                                padding: 2,  // Apply padding fix for tablet
+                                speed: 3000  // Adjust speed for smoother mobile transition
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1,
+                                speed: 2000,  // Smoother transition
+                                padding: 2,  // Apply padding fix for mobile
+                                cssEase: 'ease-out'  // Less jerky easing on smaller screens
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                speed: 2000,
+                                cssEase: 'ease-out',
+                                padding: 2  // Apply padding fix for mobile
+                            }
+                        }
+                    ]
+                });
+            }
+        });
+    });
+</script>
+
+<?php endif; ?>
+<?php endif; ?>

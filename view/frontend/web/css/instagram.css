@@ -1,0 +1,76 @@
+/* Instagram Carousel Title Styling */
+#instagram-slider {
+    margin-bottom: 50px;
+}
+.instagram-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.instagram-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.instagram-title p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Add some styling for the tooltip (default browser tooltip behavior will show on hover) */
+.feed {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Remove padding between slides */
+.slick-slide {
+    padding: 2px; /* Remove padding between slides */
+}
+
+/* Style the Slick arrows */
+.slick-prev, .slick-next {
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black background */
+    color: black;  /* Black arrow color */
+    border-radius: 50%;  /* Rounded arrows */
+    width: 40px;  /* Increase size of the arrow container */
+    height: 40px;  /* Increase size of the arrow container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+    content: '';  /* Clear any default text for the arrows */
+}
+
+.slick-prev:after {
+    content: '<';  /* Set the previous arrow symbol */
+    font-size: 20px;  /* Set the size of the symbol */
+    color: white;  /* Set the color of the arrow symbol */
+}
+
+.slick-next:after {
+    content: '>';  /* Set the next arrow symbol */
+    font-size: 20px;  /* Set the size of the symbol */
+    color: white;  /* Set the color of the arrow symbol */
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);  /* Darker black background on hover */
+}
+
+/* Style the dots */
+.slick-dots li button:before {
+    color: black;  /* Black dot color */
+    font-size: 20px !important;  /* Increase the size of the dots */
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: black;  /* Active dot in black */
+}

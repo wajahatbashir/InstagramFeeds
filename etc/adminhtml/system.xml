@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <section id="instagram_feeds" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instagram Feeds</label>
+            <tab>general</tab>
+            <resource>WB_InstagramFeeds::config</resource>
+
+            <!-- General Settings -->
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                
+                <!-- Enable Instagram Feeds -->
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Instagram Feeds</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Instagram Feed Title -->
+                <field id="title" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Feed Title</label>
+                    <comment>Enter the title text for Instagram feed section</comment>
+                </field>
+
+                <!-- Instagram Feed Subheading -->
+                <field id="subheading" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Feed Subheading</label>
+                    <comment>Enter the subheading text for Instagram feed section</comment>
+                </field>
+
+                <!-- Access Token -->
+                <field id="access_token" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                    <comment>Get access token from Instagram API</comment>
+                </field>
+
+                <!-- Feeds Limit -->
+                <field id="feeds_limit" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Feeds Limit</label>
+                    <validate>validate-zero-or-greater</validate>
+                </field>
+
+                <!-- Enable Tooltip Caption -->
+                <field id="enable_tooltip" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Caption Tooltip</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable or Disable Instagram caption tooltip</comment>
+                </field>
+            </group>
+
+            <!-- Slider Options -->
+            <group id="slider_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Slider Options</label>
+
+                <!-- Slides to Show -->
+                <field id="slides_to_show" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slides to Show</label>
+                    <validate>validate-zero-or-greater</validate>
+                    <comment>How many images to display at once</comment>
+                </field>
+
+                <!-- Slides to Scroll -->
+                <field id="slides_to_scroll" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slides to Scroll</label>
+                    <validate>validate-zero-or-greater</validate>
+                    <comment>How many images to scroll at once</comment>
+                </field>
+
+                <!-- Infinite Scrolling -->
+                <field id="infinite" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Infinite Scroll</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Auto Play -->
+                <field id="autoplay" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Play</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Show Arrows -->
+                <field id="arrows" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Arrows</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Show Dots -->
+                <field id="dots" translate="label" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Dots</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Speed -->
+                <field id="speed" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Speed (ms)</label>
+                    <validate>validate-zero-or-greater</validate>
+                    <comment>Transition speed (in milliseconds)</comment>
+                </field>
+
+                <!-- Autoplay Speed -->
+                <field id="autoplay_speed" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay Speed (ms)</label>
+                    <validate>validate-zero-or-greater</validate>
+                    <comment>Delay between auto slides (in milliseconds)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

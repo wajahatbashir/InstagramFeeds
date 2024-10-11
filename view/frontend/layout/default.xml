@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Load Slick CSS if needed -->
+        <css src="WB_InstagramFeeds::css/slick.css"/>
+        <css src="WB_InstagramFeeds::css/slick-theme.css"/>
+
+        <!-- Load Your Custom Instagram CSS Last -->
+        <css src="WB_InstagramFeeds::css/instagram.css"/>
+
+        <!-- Require the custom JavaScript configuration -->
+        <script src="requirejs/require-config.js"/>
+    </head>
+    <body>
+        <!--
+        <referenceContainer name="content">
+            <block class="WB\InstagramFeeds\Block\Feeds" name="instagram_feeds" template="WB_InstagramFeeds::feeds.phtml"/>
+        </referenceContainer>
+        -->
+    </body>
+</page>
