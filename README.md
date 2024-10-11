@@ -19,6 +19,7 @@ The Instagram Feeds module for Magento 2.x allows store owners to display Instag
 - **Admin Configuration**: Control settings like the number of slides, autoplay speed, slide transitions, and more.
 - **Fully Tested**: Compatible with Magento 2.4.x and tested on live projects.
 
+
 ## Usage
 
 ### 1. Display Instagram Feeds via CMS Block or Page
@@ -31,16 +32,8 @@ You can easily insert the Instagram Feeds slider into any CMS page or block. To 
    ```
 3. Save the page or block, and the Instagram slider will display at the desired location.
 
-### 2. Adding the Instagram Feeds Slider via Widget
 
-1. In the Magento Admin, navigate to **Content > Widgets**.
-2. Click **Add Widget**.
-3. Under **Type**, select **WB Instagram Feeds**.
-4. Choose the **Design Theme** and **Layout**.
-5. Configure the widget to display in any desired container (e.g., Main Content Area).
-6. Save the widget configuration and check the frontend.
-
-### 3. Admin Configuration
+### 2. Admin Configuration
 
 You can configure the Instagram Feeds settings by going to **Stores > Configuration > General > Instagram Feeds**.
 
