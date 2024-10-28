@@ -4,7 +4,7 @@
 **Tested On:** Magento 2.4.x  
 **Author:** Wajahat Bashir
 
-## Description
+## Description 
 
 The Instagram Feeds module for Magento 2.x allows store owners to display Instagram media feeds in a beautiful, responsive carousel. The module supports fetching feeds from Instagram's API, provides customizable slider settings, and can be integrated through widgets, CMS blocks, or directly within layouts. Admin users can configure the module via the Magento admin panel and control various aspects, including the number of slides, autoplay settings, tooltip captions, and more.
 
